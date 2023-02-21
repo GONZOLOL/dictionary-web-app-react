@@ -1,0 +1,33 @@
+@use "stylesGuide" as style;
+
+[theme=light] {
+    --bg-color: hsl(0, 0%, 100%);
+    --bg-input-color: hsl(0, 0%, 96%);
+    --text-color: hsl(0, 0%, 2%);
+    --text-color-active: hsl(274, 82%, 60%);
+    --text-color-alt: hsl(0, 0%, 51%);
+    --shadow: hsl(0, 0%, 96%);
+
+}
+[theme=dark] {
+    --bg-color: hsl(0, 0%, 2%);
+    --bg-input-color: hsl(0, 0%, 12%);
+    --text-color: hsl(0, 0%, 96%);
+    --text-color-active: hsl(274, 82%, 60%);
+    --text-color-alt: hsl(0, 0%, 51%);
+    --shadow: hsl(274, 82%, 60%);
+}
+
+[font="Sans Serif"] {
+    --font: sans-serif;
+}
+[font=Serif] {
+    --font: serif;
+}
+[font=Mono] {
+    --font: monospace;
+}
+* {
+    font-size: style.$fontSize;
+    font-family: var(--font);
+}
