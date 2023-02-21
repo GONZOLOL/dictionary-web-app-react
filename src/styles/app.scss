@@ -1,0 +1,11 @@
+.header{
+
+    .headerWrapper{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .logo{
+            margin-right: auto;
+        }
+    }
+}
