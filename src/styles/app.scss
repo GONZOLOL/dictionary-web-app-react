@@ -1,11 +1,64 @@
-.header{
+@use "stylesGuide" as style;
 
-    .headerWrapper{
+.mainWrapper{
+    max-width: 375px;
+    margin: 0 auto;
+    .header{
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        gap: 10px;
         .logo{
             margin-right: auto;
+        }
+        .headerActions{
+            display: flex;
+            position: relative;
+            justify-items: center;
+            align-items: center;
+            gap: 10px;
+            .menu{
+
+                visibility: hidden;
+                
+                &.show {
+                    visibility: visible;
+                }
+            .menuContainer {
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    position: absolute;
+                    left: -70px;
+                    list-style: none;
+                    padding: 20px 70px 20px 30px;
+                    gap: 20px;
+                    border-radius: 15px;
+                    background-color: var(--bg-color);
+                    box-shadow: 0 0 20px 0 var(--shadow);
+                    align-items: flex-start;
+
+                    li {
+                      a {
+                        text-decoration: none;
+                        color: var(--text-color);
+            
+                        &:hover {
+                            color: var(--text-color-active);
+                        }
+
+                      }        
+                    }
+                  }
+                }
+            }
+        }
+
+        .arrowDown{
+            &:hover {
+                cursor: pointer;
+              }
         }
     }
 }
