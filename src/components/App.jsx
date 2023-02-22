@@ -7,7 +7,6 @@ import {ReactComponent as Logo} from "../../starter_files/images/logo.svg";
 import {ReactComponent as ArrowDown} from "../../starter_files/images/icon-arrow-down.svg";
 import {ReactComponent as Moon} from "../../starter_files/images/icon-moon.svg";
 
-
 export default function App() {
 
   const [font, setFont] = useState("Sans Serif")
@@ -18,18 +17,34 @@ export default function App() {
 
   function getLocalStorage() {
     const localStorageMode = localStorage.getItem('mode');
-
+    const localStorageFont = localStorage.getItem('font')
     if (localStorageMode) {
       setMode(localStorageMode);
     }
+    if (localStorageFont) {
+      setFont(localStorageFont);
+    }
   }
-  function updateLocalStorage(mode) {
+  function updateLocalStorageMode(mode) {
     const localStorageMode = localStorage.getItem('mode');
 
     if (localStorageMode) {
       localStorage.setItem('mode', localStorageMode);
       setMode(localStorageMode);
     }
+    localStorage.setItem('mode', mode);
+    setMode(mode);
+  }
+
+  function updateLocalStorageFont(font) {
+    const localStorageFont = localStorage.getItem('font')
+
+    if (localStorageFont) {
+      localStorage.setItem('font', localStorageFont);
+      setFont(localStorageFont);
+    }
+    localStorage.setItem('font', font);
+    setFont(font);
   }
   
   useEffect(() => {
@@ -41,12 +56,12 @@ export default function App() {
   }
 
   const changeFont = (event) => {
-    setFont(event.target.text);
+    updateLocalStorageFont(event.target.text)
     setMenu(!menu);
   }
 
   const toggleColorMode = () => {
-      updateLocalStorage(mode === 'light' ? 'dark' : mode === 'dark' ? 'light' : 'light')
+      updateLocalStorageMode(mode === 'light' ? 'dark' : mode === 'dark' ? 'light' : 'light')
   }
   return (
     <>
