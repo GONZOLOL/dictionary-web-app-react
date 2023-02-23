@@ -6,6 +6,7 @@ import ToggleOnIcon from "@mui/icons-material/ToggleOn";
 import {ReactComponent as Logo} from "../../starter_files/images/logo.svg";
 import {ReactComponent as ArrowDown} from "../../starter_files/images/icon-arrow-down.svg";
 import {ReactComponent as Moon} from "../../starter_files/images/icon-moon.svg";
+import Input from "./Input";
 
 export default function App() {
 
@@ -65,13 +66,13 @@ export default function App() {
   }
   return (
     <>
-      <section theme={mode} font={font}>
-        <section className="mainWrapper">
+      <section className="wrapper" data-theme={mode} data-font={font} >
+        <section className="main">
           <div className="header">
             <Logo className="logo" />
             <div className="headerActions">
               <div id="select">
-                <span>{font}</span>
+                <span className="mainFont">{font}</span>
               </div>
               <ArrowDown onClick={toggleMenu} className="arrowDown" />
               <div className={`menu ${menu ? 'show' : ''}`}>
@@ -89,10 +90,7 @@ export default function App() {
               {mode === 'dark' ? <Moon stroke= "hsl(274, 82%, 60%)"/> : <Moon stroke= "hsl(0, 0%, 51%)" />}
             </div>
           </div>
-
-          <div className="input">
-
-          </div>
+          <Input/>
         </section>
       </section>
     </>

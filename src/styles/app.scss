@@ -1,8 +1,13 @@
 @use "stylesGuide" as style;
 
-.mainWrapper{
+.wrapper{
+    background-color: var(--bg-color);
+}
+
+.main{
     max-width: 375px;
     margin: 0 auto;
+    padding: 30px 10px;
     .header{
         display: flex;
         justify-content: flex-end;
@@ -16,21 +21,36 @@
             position: relative;
             justify-items: center;
             align-items: center;
-            gap: 10px;
+            gap: 6px;
+            font-size: 10px;
+            .mainFont{
+                color: var(--text-color);
+            }
             .menu{
-
                 visibility: hidden;
-                
                 &.show {
                     visibility: visible;
                 }
+            }
+            #select{
+                &::before{
+                    content: "";
+                    position: absolute;
+                    width: 2px;
+                    height: 24px;
+                    left: 65px;
+                    top: 10px;
+                    background-color: var(--after-line-color);
+                }
+            }
             .menuContainer {
-                ul {
+                ul{
                     display: flex;
                     flex-direction: column;
                     justify-content: flex-start;
                     position: absolute;
-                    left: -70px;
+                    left: -80px;
+                    top: 40px;
                     list-style: none;
                     padding: 20px 70px 20px 30px;
                     gap: 20px;
@@ -38,27 +58,26 @@
                     background-color: var(--bg-color);
                     box-shadow: 0 0 20px 0 var(--shadow);
                     align-items: flex-start;
+                    z-index: 1;
 
                     li {
-                      a {
+                        a {
                         text-decoration: none;
                         color: var(--text-color);
-            
                         &:hover {
                             color: var(--text-color-active);
                         }
-
-                      }        
+                        }        
                     }
-                  }
                 }
+            
             }
         }
-
         .arrowDown{
             &:hover {
                 cursor: pointer;
               }
+            
         }
     }
 }
