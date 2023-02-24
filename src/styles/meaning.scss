@@ -1,0 +1,12 @@
+@use "stylesGuide" as style;
+
+.bullet{
+    content: "";
+    display: block;
+    align-self: flex-start;
+    min-width: 5px;
+    min-height: 5px;
+    margin: 15px 20px 10px 0;
+    border-radius: 50%;
+    background-color: var(--text-color);
+}

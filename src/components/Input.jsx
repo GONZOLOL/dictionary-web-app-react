@@ -1,31 +1,27 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {ReactComponent as Search} from "../../starter_files/images/icon-search.svg";
-import { dictionary } from '../api/dictionary';
-
+import { Phonetic } from "./Phonetic";
+import { Meaning } from "./Meaning";
+import { Source } from "./Source";
 
 export default function Input() {
 
-    const [word, setWord] = useState("");
-    const [phonetic, setPhonetic] = useState("");
-    const [audio, setAudio] = useState("");
-    const [partOfSpeech, setPartOfSpeech] = useState("");
-    const [definition, setDefinition] = useState("");
-    const [example, setExample] = useState("");
-    const [synonyms, setSynonyms] = useState("");
-    const [antonyms, setAntonyms] = useState("");
-    const [source, setSource] = useState("");
-
-
+    const [data, setData] = useState(null);
+    const [error, setError] = useState("");
+    
     function submit(event) {
         event.preventDefault();
         const word = event.target.word.value;
-    
+        
         if (word){
           document.getElementById("error").innerHTML= "";
           document.getElementById("word").style.outline= "none";
-          dictionary(word)
-          .then( data => { dictionaryResult(data) } );
+
+          fetch(`${"https://api.dictionaryapi.dev/api/v2/entries/en/"}${word}`)
+          .then( (data) => data.json() )          
+          .then( (data) => setData(data[0]) )
+          .catch( (error) => setError(error) )
              
         }else {
           document.getElementById("error").innerHTML= "Please add a word!";
@@ -33,15 +29,7 @@ export default function Input() {
         }
     }
 
-    const dictionaryResult = (data) => {
 
-        console.log(data);
-
-        data.forEach(data => {
-            setWord(data.find(element => element == "word"));
-        });
-        console.log("word",word)
-    }
     return (
         <>
             <section className="inputContainer">
@@ -63,6 +51,14 @@ export default function Input() {
                 </form>
                 <div id='error'className='inputError' />
             </section>
+            {data ? (
+                <section className="dataResultWrapper">
+                    <Phonetic result={data} />
+                    <Meaning result={data} />
+                    <Source result={data} /> 
+                </section>
+            ) : ""  }
         </>
+        
     )
 }
