@@ -1,33 +1,63 @@
 @use "stylesGuide" as style;
 
-[theme=light] {
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: hsl(0, 0%, 2%);
+        --bg-input-color: hsl(0, 0%, 12%);
+        --text-color: hsl(0, 0%, 96%);
+        --text-color-active: hsl(274, 82%, 60%);
+        --text-color-alt: hsl(0, 0%, 51%);
+        --shadow: hsl(274, 82%, 60%);
+        --after-line-color:hsl(43, 3%, 40%);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-color: hsl(0, 0%, 100%);
+        --bg-input-color: hsl(0, 0%, 96%);
+        --text-color: hsl(0, 0%, 2%);
+        --text-color-active: hsl(274, 82%, 60%);
+        --text-color-alt: hsl(0, 0%, 51%);
+        --shadow: hsl(0, 0%, 96%);
+        --after-line-color:hsl(30, 11%, 96%);
+    }
+}
+
+[data-theme=light] {
     --bg-color: hsl(0, 0%, 100%);
     --bg-input-color: hsl(0, 0%, 96%);
     --text-color: hsl(0, 0%, 2%);
     --text-color-active: hsl(274, 82%, 60%);
     --text-color-alt: hsl(0, 0%, 51%);
     --shadow: hsl(0, 0%, 96%);
-
+    --after-line-color:hsl(30, 11%, 96%);
 }
-[theme=dark] {
+
+[data-theme=dark] {
     --bg-color: hsl(0, 0%, 2%);
     --bg-input-color: hsl(0, 0%, 12%);
     --text-color: hsl(0, 0%, 96%);
     --text-color-active: hsl(274, 82%, 60%);
     --text-color-alt: hsl(0, 0%, 51%);
     --shadow: hsl(274, 82%, 60%);
+    --after-line-color:hsl(43, 3%, 40%);
 }
 
-[font="Sans Serif"] {
+[data-font="Sans Serif"] {
     --font: sans-serif;
 }
-[font=Serif] {
+[data-font=Serif] {
     --font: serif;
 }
-[font=Mono] {
+[data-font=Mono] {
     --font: monospace;
 }
 * {
     font-size: style.$fontSize;
     font-family: var(--font);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
 }

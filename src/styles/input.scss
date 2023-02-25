@@ -1,0 +1,40 @@
+@use "stylesGuide" as style;
+
+.inputContainer{
+    position: relative;
+    .inputWrapper{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 30px;
+        .input{
+            width: 100%;
+            border-radius: 18px;
+            padding: 15px 10px 15px 25px;
+            background-color: var(--bg-input-color);
+            border: none;
+            outline: none;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        .iconSearch{
+            position: absolute;
+            margin-right: 20px;
+            background-color: var(--bg-input-color);
+            border: none;
+            &:hover {
+                cursor: pointer;
+              }
+        }
+    }
+    .inputError{
+        position: absolute;
+        top: 60px;
+        left: 25px;
+        color: style.$purple;
+    }
+    .dataResultWrapper{
+        color: var(--text-color);
+    }
+}
+
