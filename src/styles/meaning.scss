@@ -1,12 +1,62 @@
-@use "stylesGuide" as style;
+.partOfSpeechContainer{
+    position: relative;
+    margin-bottom: 20px;
 
-.bullet{
-    content: "";
-    display: block;
-    align-self: flex-start;
-    min-width: 5px;
-    min-height: 5px;
-    margin: 15px 20px 10px 0;
-    border-radius: 50%;
-    background-color: var(--text-color);
+    .partOfSpeech{
+        color: var(--text-color);
+    }
+
+    &::before{
+        content: "";
+        position: absolute;
+        border-top: 1px solid var(--text-color-alt);
+        width: 100%;
+        margin-left: 30px;
+        opacity: .2;
+        top: 12px;
+    }
+}
+.meaning{
+    color: var(--text-color-alt);
+}
+.listContainer{
+    margin: 20px 0px 20px 0px;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .styledList{
+        display: flex;
+        .bullet{
+            content: "";
+            display: block;
+            align-self: flex-start;
+            min-width: 5px;
+            min-height: 5px;
+            margin: 15px 20px 10px 0;
+            border-radius: 50%;
+            background-color: var(--text-color-active);
+        }
+    }
+    .example{
+        list-style: none;
+        color: var(--text-color-alt);
+        margin-left: 20px;
+    }
+}
+.synonymsContainer{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    .synonymsWord{
+        color: var(--text-color-alt);
+    }
+    .synonyms{
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    .activeSynonyms{
+        color: var(--text-color-active);
+    }
 }
