@@ -6,11 +6,9 @@ export const Source =  ({ result }) => {
       <div className="sourceContainer">
         <span className="sourceWord">Source</span>
         <div className="source">
-          <span>
-            <a href={result.sourceUrls[0]} target="_blank" rel="noreferrer">
+            <a className="url" href={result.sourceUrls[0]} target="_blank" rel="noreferrer">
               {result.sourceUrls[0]}
             </a>
-          </span>
           <NewWindowIcon />
         </div>
       </div>
