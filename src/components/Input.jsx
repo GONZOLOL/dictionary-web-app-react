@@ -24,8 +24,8 @@ export default function Input() {
           .catch( (error) => setError(error) )
              
         }else {
-          document.getElementById("error").innerHTML= "Please add a word!";
-          document.getElementById("word").style.outline= "4px solid hsl(274, 82%, 60%)";
+          document.getElementById("error").innerHTML= "Whoops, cant be empty...";
+          document.getElementById("word").style.outline= "1px solid red";
         }
     }
 

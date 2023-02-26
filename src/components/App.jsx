@@ -78,14 +78,14 @@ export default function App() {
               <div className={`menu ${menu ? 'show' : ''}`}>
                 <div className="menuContainer">
                     <ul>
-                        <li><a href="#" onClick={changeFont}>Sans Serif</a></li>
-                        <li><a href="#" onClick={changeFont}>Serif</a></li>
-                        <li><a href="#" onClick={changeFont}>Mono</a></li>
+                        <li><a href="#" onClick={changeFont} className="sansSerifFont">Sans Serif</a></li>
+                        <li><a href="#" onClick={changeFont} className="serifFont">Serif</a></li>
+                        <li><a href="#" onClick={changeFont} className="monoFont">Mono</a></li>
                     </ul>
                 </div>
               </div>
-              <IconButton onClick={toggleColorMode}>
-                {mode === 'dark' ? <ToggleOnIcon sx={{ color: "hsl(274, 82%, 60%)" }}/> : <ToggleOffIcon color="disabled" />}
+              <IconButton onClick={toggleColorMode} className="toggler" >
+                {mode === 'dark' ? <ToggleOnIcon sx={{ color: "hsl(274, 82%, 60%)" }}/> : <ToggleOffIcon color="black" />}
               </IconButton>
               {mode === 'dark' ? <Moon stroke= "hsl(274, 82%, 60%)"/> : <Moon stroke= "hsl(0, 0%, 51%)" />}
             </div>

@@ -1,0 +1,26 @@
+.phoneticWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0px 30px 0px;
+}
+.wordText{
+    display: flex;
+    flex-direction: column ;
+    gap: 10px;
+    .mainWord{
+        font-size: 40px;
+        font-weight: 600;
+        color: var(--text-color);
+    }
+    .phonetic{
+        color: var(--text-color-active);
+    }
+}
+.wordAudio{
+    scale: 0.8;
+}
+.playButton{
+    background-color: var(--bg-color);
+    border: none;
+}

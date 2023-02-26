@@ -1,4 +1,4 @@
-@use "stylesGuide" as style;
+@use "_stylesGuide.scss" as style;
 
 .inputContainer{
     position: relative;
@@ -30,8 +30,7 @@
     .inputError{
         position: absolute;
         top: 60px;
-        left: 25px;
-        color: style.$purple;
+        color: style.$red;
     }
     .dataResultWrapper{
         color: var(--text-color);

@@ -37,13 +37,22 @@
                     content: "";
                     position: absolute;
                     width: 2px;
-                    height: 24px;
-                    left: 65px;
-                    top: 10px;
+                    height: 35px;
+                    left: 76px;
+                    top: 5px;
                     background-color: var(--after-line-color);
                 }
             }
             .menuContainer {
+                .sansSerifFont{
+                    font-family: sans-serif;
+                }
+                .serifFont{
+                    font-family: serif;
+                }
+                .monoFont{
+                    font-family: monospace;
+                }
                 ul{
                     display: flex;
                     flex-direction: column;
@@ -70,14 +79,16 @@
                         }        
                     }
                 }
-            
             }
         }
         .arrowDown{
+            margin: 0px 5px 0px 10px;
             &:hover {
                 cursor: pointer;
               }
-            
+        }
+        .toggler{
+            scale: 1.5;
         }
     }
 }

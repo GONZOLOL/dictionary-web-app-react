@@ -11,13 +11,13 @@ export const Phonetic = ({ result }) => {
 
     return (
         <>
-            <div>
+            <div className="phoneticWrapper">
                 <div className='wordText'>
-                    <span>{result.word}</span>
-                    <span>{phonetic}</span>
+                    <span className="mainWord">{result.word}</span>
+                    <span className="phonetic">{phonetic}</span>
                 </div>
                 <div className='wordAudio'>
-                    <button>
+                    <button className="playButton">
                         <Play onClick={playSound} />
                     </button>
                 </div>

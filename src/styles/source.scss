@@ -1,0 +1,19 @@
+.sourceContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .sourceWord{
+        color: var(--text-color-alt);
+        margin: 10px 0px 10px 0px;
+        
+        &::before{
+            content: "";
+            border-top: 1px solid var(--text-color-alt);
+            position: absolute;
+            width: 100%;
+            opacity: 0.2;
+            top: -5px;
+        }
+    }
+
+}

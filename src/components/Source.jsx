@@ -3,9 +3,9 @@ import {ReactComponent as NewWindowIcon} from "../../starter_files/images/icon-n
 
 export const Source =  ({ result }) => {
     return (
-      <div>
-        <span>Source</span>
-        <div className="sourceContainer">
+      <div className="sourceContainer">
+        <span className="sourceWord">Source</span>
+        <div className="source">
           <span>
             <a href={result.sourceUrls[0]} target="_blank" rel="noreferrer">
               {result.sourceUrls[0]}
