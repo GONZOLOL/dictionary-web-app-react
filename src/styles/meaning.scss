@@ -3,18 +3,24 @@
     margin-bottom: 20px;
 
     .partOfSpeech{
+        position: relative;
         color: var(--text-color);
+        background-color: var(--bg-color);
+        z-index: 1;
+        font-weight: 600;
     }
 
     &::before{
         content: "";
+        display: flex;
         position: absolute;
-        border-top: 1px solid var(--text-color-alt);
+        background-color: var(--text-color-alt);
+        height: 1px;
         width: 100%;
-        margin-left: 30px;
-        opacity: .2;
+        opacity: 0.2;
         top: 12px;
-    }
+        z-index: 1;
+        }
 }
 .meaning{
     color: var(--text-color-alt);

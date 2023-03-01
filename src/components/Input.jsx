@@ -15,17 +15,32 @@ export default function Input() {
         const word = event.target.word.value;
         
         if (word){
-          document.getElementById("error").innerHTML= "";
-          document.getElementById("word").style.outline= "none";
+          setError(null);
 
           fetch(`${"https://api.dictionaryapi.dev/api/v2/entries/en/"}${word}`)
-          .then( (data) => data.json() )          
-          .then( (data) => setData(data[0]) )
-          .catch( (error) => setError(error) )
-             
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response;
+            })
+            .then( (data) => data.json() )
+            .then(data => {
+                setData(data)
+            })
+            .catch(error => {
+                if (error.message === 'Network response was not ok') {
+                    setError("Sorry pal, we couldn't find definitions for the word you were looking for.");
+                    setData(null)
+                } else {
+                console.error('Error:', error);
+                }
+            });
+                        
         }else {
-          document.getElementById("error").innerHTML= "Whoops, cant be empty...";
-          document.getElementById("word").style.outline= "1px solid red";
+          setError("Whoops, cant be empty...");
+          setData(null)
+
         }
     }
 
@@ -36,7 +51,7 @@ export default function Input() {
                 <form className="inputWrapper" onSubmit={submit}>
                     <input 
                         type="text" 
-                        className="input"
+                        className={!error ? "input" : "input inputError"} 
                         id='word'
                         name='word'
                         size='20'
@@ -49,15 +64,19 @@ export default function Input() {
                         <Search />
                     </button>
                 </form>
-                <div id='error'className='inputError' />
+                {error ? (<div className='downInputError'>{error}</div>) : ""}
             </section>
             {data ? (
-                <section className="dataResultWrapper">
-                    <Phonetic result={data} />
-                    <Meaning result={data} />
-                    <Source result={data} /> 
-                </section>
-            ) : ""  }
+                data.map((datos, i) => {
+                    return (
+                        <section key={i} className="dataResultWrapper">
+                            <Phonetic result={datos} />
+                            <Meaning result={datos} />
+                            <Source result={datos} /> 
+                        </section>
+
+                    )})) : ""
+            }
         </>
         
     )
