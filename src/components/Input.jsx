@@ -26,11 +26,12 @@ export default function Input() {
             })
             .then( (data) => data.json() )
             .then(data => {
-                setData(data[0])
+                setData(data)
             })
             .catch(error => {
                 if (error.message === 'Network response was not ok') {
                     setError("Sorry pal, we couldn't find definitions for the word you were looking for.");
+                    setData(null)
                 } else {
                 console.error('Error:', error);
                 }
@@ -38,6 +39,8 @@ export default function Input() {
                         
         }else {
           setError("Whoops, cant be empty...");
+          setData(null)
+
         }
     }
 
@@ -64,12 +67,16 @@ export default function Input() {
                 {error ? (<div className='downInputError'>{error}</div>) : ""}
             </section>
             {data ? (
-                <section className="dataResultWrapper">
-                    <Phonetic result={data} />
-                    <Meaning result={data} />
-                    <Source result={data} /> 
-                </section>
-            ) : ""  }
+                data.map((datos, i) => {
+                    return (
+                        <section key={i} className="dataResultWrapper">
+                            <Phonetic result={datos} />
+                            <Meaning result={datos} />
+                            <Source result={datos} /> 
+                        </section>
+
+                    )})) : ""
+            }
         </>
         
     )
