@@ -61,3 +61,18 @@
     padding: 0;
     user-select: none;
 }
+
+@media screen and (min-width: 430px) {
+    .main{
+        max-width: 736px !important;
+    }
+    .mainWord{
+        font-size: 60px !important;
+    }
+    .phonetic{
+        font-size: 30px !important;        
+    }
+    .playButton{
+        scale: 1.4;
+    }
+}
