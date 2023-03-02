@@ -6,17 +6,13 @@ import { Meaning } from "./Meaning";
 import { Source } from "./Source";
 
 export default function Input() {
-
     const [data, setData] = useState(null);
     const [error, setError] = useState("");
-    
     function submit(event) {
         event.preventDefault();
         const word = event.target.word.value;
-        
         if (word){
           setError(null);
-
           fetch(`${"https://api.dictionaryapi.dev/api/v2/entries/en/"}${word}`)
             .then(response => {
                 if (!response.ok) {
@@ -35,16 +31,12 @@ export default function Input() {
                 } else {
                 console.error('Error:', error);
                 }
-            });
-                        
+            });     
         }else {
           setError("Whoops, cant be empty...");
           setData(null)
-
         }
     }
-
-
     return (
         <>
             <section className="inputContainer">
@@ -78,6 +70,5 @@ export default function Input() {
                     )})) : ""
             }
         </>
-        
     )
 }
